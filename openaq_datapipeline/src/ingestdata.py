@@ -5,7 +5,7 @@ import json
 url = "https://api.openaq.org/v3/locations"
 
 parametros_requisicao = {
-    "country": "Brasil",
+    "country": "BR",
     "limit": 100,
     "page": 5
 
