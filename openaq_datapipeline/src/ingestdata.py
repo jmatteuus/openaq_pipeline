@@ -21,6 +21,7 @@ headers = {
 resposta = requests.get(url, params=parametros_requisicao, headers=headers)
 
 if resposta.status_code == 200:
-    print('OK')
-else:
-    print(f'Verificar: {resposta.status_code}')
+    dados = resposta.json()
+    os.makedirs("data", exist_ok=True)
+    with open("data/dados_brutos.json", "w", encoding="utf-8") as f:
+        json.dump(dados, f, indent=2, ensure_ascii=False)
