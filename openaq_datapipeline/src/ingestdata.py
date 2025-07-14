@@ -1,6 +1,9 @@
 import requests
+from dotenv import load_dotenv
 import os
 import json
+
+load_dotenv()
 
 url = "https://api.openaq.org/v3/locations"
 
@@ -16,3 +19,8 @@ headers = {
 }
 
 resposta = requests.get(url, params=parametros_requisicao, headers=headers)
+
+if resposta.status_code == 200:
+    print('OK')
+else:
+    print(f'Verificar: {resposta.status_code}')
